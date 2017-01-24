@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FireworkFestival</string>
+    <string name="action_settings">setting</string>
+    <string name="main_gamestart">game start</string>
+    <string name="main_fire">FireworkFestival</string>
+    <string name="main_look">Attractions</string>
+    <string name="main_location">PlaceGuidance</string>
+    <string name="main_traffic">Traffic</string>
+    <string name="sub_fire">FireworkFestival</string>
+    <string name="sub_look">Attractions</string>
+    <string name="sub_location">PlaceGuidance</string>
+    <string name="sub_traffic">Traffic</string>
+</resources>

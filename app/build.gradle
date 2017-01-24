@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "fuzzle.Fireworksfestival"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        //Nultidex support library 추가
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    //dexOptions 추가
+    dexOptions {
+        jumboMode true
+        javaMaxHeapSize "4g"
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //google play services추가
+    //Nultidex support library 추가
+    compile 'com.github.bumptech.glide:glide:3.6.0'
+    compile 'com.android.support:appcompat-v7:23.4.+'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.ssomai:android.scalablelayout:2.1.1'
+    compile 'com.google.android.gms:play-services:9.6.1'
+    compile 'com.google.android.gms:play-services-ads:9.6.1'
+    compile 'com.google.android.gms:play-services-auth:9.6.1'
+    compile 'com.google.android.gms:play-services-gcm:9.6.1'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:multidex:1.0.0'
+    testCompile 'junit:junit:4.12'
+
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+}

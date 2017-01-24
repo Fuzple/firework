@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">불꽃놀이</string>
+    <string name="action_settings">설정</string>
+    <string name="main_gamestart">게임 시작</string>
+    <string name="main_fire">불꽃놀이</string>
+    <string name="main_look">부산볼거리</string>
+    <string name="main_location">장소안내</string>
+    <string name="main_traffic">교통안내</string>
+    <string name="sub_fire">불꽃놀이</string>
+    <string name="sub_look">부산볼거리</string>
+    <string name="sub_location">장소안내</string>
+    <string name="sub_traffic">교통안내</string>
+</resources>

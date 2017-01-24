@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityMain"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_background"
+        android:id="@+id/main_background" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/toolbar"
+            android:layout_alignParentTop="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_weight="62"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="43">
+
+                <com.ssomai.android.scalablelayout.ScalableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    sl:scale_base_width="2400"
+                    sl:scale_base_height="1350">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_Gamestart"
+                        sl:scale_left="830"
+                        sl:scale_top="360"
+                        sl:scale_width="800"
+                        sl:scale_height="800"
+                        android:background="@drawable/main_btn_start" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/main_gamestart"
+                        android:textColor="#ffffff"
+                        android:gravity="center"
+                        sl:scale_width="900"
+                        sl:scale_height="220"
+                        sl:scale_left="800"
+                        sl:scale_top="1100"
+                        sl:scale_textsize="110"/>
+
+                    <Button
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:id="@+id/btn_Setting"
+                        android:background="@drawable/main_btn_setting"
+                        sl:scale_left="1650"
+                        sl:scale_top="120"
+                        sl:scale_width="300"
+                        sl:scale_height="300"/>
+
+                </com.ssomai.android.scalablelayout.ScalableLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="50">
+
+                <com.ssomai.android.scalablelayout.ScalableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    sl:scale_base_width="2400"
+                    sl:scale_base_height="950">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_Look"
+                        android:background="@drawable/main_btn_look"
+                        sl:scale_left="1430"
+                        sl:scale_top="220"
+                        sl:scale_width="550"
+                        sl:scale_height="550" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/main_look"
+                        android:textColor="#ffffff"
+                        android:gravity="center"
+                        sl:scale_width="900"
+                        sl:scale_height="200"
+                        sl:scale_left="1280"
+                        sl:scale_top="730"
+                        sl:scale_textsize="110" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_Fire"
+                        android:background="@drawable/main_btn_fire"
+                        sl:scale_left="400"
+                        sl:scale_top="220"
+                        sl:scale_width="550"
+                        sl:scale_height="550" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/main_fire"
+                        android:textColor="#ffffff"
+                        android:gravity="center"
+                        sl:scale_width="900"
+                        sl:scale_height="200"
+                        sl:scale_left="250"
+                        sl:scale_top="730"
+                        sl:scale_textsize="110"/>
+
+                </com.ssomai.android.scalablelayout.ScalableLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="50">
+
+                <com.ssomai.android.scalablelayout.ScalableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                    sl:scale_base_width="2400"
+                sl:scale_base_height="950">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_Location"
+                    android:background="@drawable/main_btn_loaction"
+                    sl:scale_left="410"
+                    sl:scale_top="240"
+                    sl:scale_width="550"
+                    sl:scale_height="550" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/main_location"
+                        android:textColor="#ffffff"
+                        android:gravity="center"
+                        sl:scale_width="900"
+                        sl:scale_height="200"
+                        sl:scale_left="230"
+                        sl:scale_top="730"
+                        sl:scale_textsize="110"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/main_traffic"
+                        android:textColor="#ffffff"
+                        android:gravity="center"
+                        sl:scale_width="900"
+                        sl:scale_height="200"
+                        sl:scale_left="1270"
+                        sl:scale_top="730"
+                        sl:scale_textsize="110"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_Traffic"
+                        android:background="@drawable/main_btn_traffic"
+                        sl:scale_left="1430"
+                        sl:scale_top="240"
+                        sl:scale_width="550"
+                        sl:scale_height="550"/>
+
+                </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="63" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
+
+
