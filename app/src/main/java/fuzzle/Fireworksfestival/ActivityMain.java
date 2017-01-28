@@ -33,18 +33,17 @@ import com.bumptech.glide.Glide;
 
 public class ActivityMain extends AppCompatActivity {
 
+    //데이터 베이스 변수
     private MySQLiteOpenHelper helper;
     String dbName = "st_file.db";
     int dbVersion = 1; // 데이터베이스 버전
     private SQLiteDatabase db;      //db변수
     String tag = "SQLite"; // Log 에 사용할 tag
-
     String name = "";   //쿼리 결과값을 저장할 변수
     int id;
 
     Button btn_fire, btn_look, btn_location, btn_traffic,btn_Setting,btn_gamestart;
     ImageView main_background;
-    Boolean coach = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
