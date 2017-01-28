@@ -6,6 +6,9 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 /**
  * Created by 김태홍 on 2016-08-23.
@@ -13,6 +16,9 @@ import android.view.ViewGroup;
 public class FragmentTraffic extends Fragment {
 
     View view;
+    ListView traffic_list;
+    AdapterCustomlist adapter;
+    ArrayList<CustomlistItem> list_ItemArrayList;
 
     @Nullable
     @Override
@@ -21,6 +27,17 @@ public class FragmentTraffic extends Fragment {
         if(view == null) {
             view = inflater.inflate(R.layout.fragment_traffic, container, false);
         }
+        traffic_list = (ListView)view.findViewById(R.id.traffic_list);
+
+        list_ItemArrayList = new ArrayList<CustomlistItem>();
+
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"광안리 해수욕장 증발"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"마린시티 파괴"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"만락동 수변공원 좀비출현"));
+
+        adapter = new AdapterCustomlist(getActivity(),list_ItemArrayList);
+
+        traffic_list.setAdapter(adapter);
 
         return view;
     }
