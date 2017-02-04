@@ -71,10 +71,6 @@ public class FragmentLook extends Fragment {
 //                intent.putExtra("data",position);
 //                startActivity(intent);
                 ActivitySub sub = new ActivitySub();
-//                sub.
-
-
-//                mCallback.onArticleSelected(position);
                 ((ActivitySub)getActivity()).tabLayout.getTabAt(2).select();
                 ((ActivitySub)getActivity()).position = position;
 

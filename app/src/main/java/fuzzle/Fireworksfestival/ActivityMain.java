@@ -1,35 +1,22 @@
 package fuzzle.Fireworksfestival;
 
-import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
 
 public class ActivityMain extends AppCompatActivity {
 
@@ -70,15 +57,16 @@ public class ActivityMain extends AppCompatActivity {
         }
 
         select();
-        //데이터베이스를 검색해서 "Mark"값이 있으면 코치마크를 실행하지 않고, 없으면 코치마크 실행후
+        // 데이터베이스를 검색해서 "Mark"값이 있으면 코치마크를 실행하지 않고, 없으면 코치마크 실행후
         // 데이터베이스에 Mark 값을 추가한다.
-        //코치마크를 첫 실행에만 나오게 하기 위해 사용했음.
+        // 코치마크를 첫 실행에만 나오게 하기 위해 사용했음.
         try {
             if (name.equals("off")) {
+
                 Log.e(tag, "데이터베이스를 찾지 못하였습니다.");
             } else if(name.equals("")){
                 coachmark();
-                insert();
+                update("off");
             }
         }catch (NullPointerException e){
             e.printStackTrace();
@@ -148,12 +136,12 @@ public class ActivityMain extends AppCompatActivity {
             Log.d(tag,"id:"+id+",name:"+name);
         }
     }
-
-    void insert () {
-        db.execSQL("insert into firework (lenguage,menual) values('korea','off');");
-        Log.d(tag, "insert 성공~!");
+    //데이터베이스 수정문
+    void update(String onoff){
+        // firework테이블에 id가 1인
+        db.execSQL("update firework set menual = '" + onoff + "' where id = 1;");
+        Log.d(tag, "update 성공~!");
     }
-
     public void coachmark(){
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

@@ -11,8 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     // 안드로이드에서 SQLite 데이터 베이스를 쉽게 사용할 수 있도록 도와주는 클래스
-    public MySQLiteOpenHelper(Context context, String name,
-                              SQLiteDatabase.CursorFactory factory, int version) {
+    public MySQLiteOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
@@ -33,4 +32,5 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL(sql);
         onCreate(db); // 다시 테이블 생성
     }
+
 }

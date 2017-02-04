@@ -46,7 +46,6 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
     static View view;
     static View v;
     int position;
-
     int data = 0;
 
     @Override
@@ -55,19 +54,15 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
         try{
             view = inflater.inflate(R.layout.fagment_location, container, false);
         }catch (InflateException e){
-// 구글맵 View가 이미 inflate되어 있는 상태이므로, 에러를 무시합니다.
+        // 구글맵 View가 이미 inflate되어 있는 상태이므로, 에러를 무시합니다.
         }
-// 이후 메서드 구현 계속
+        // 이후 메서드 구현 계속
         if(mMap == null) {
             mapFragment = (SupportMapFragment) this.getChildFragmentManager().findFragmentById(R.id.fragment_map);
-
             //맵 마커와 인포 윈도우등 호출
             mapFragment.getMapAsync(this);
             mMap = null;
         }
-
-
-
         return view;
     }
 
@@ -88,7 +83,6 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
         mMyMarkersArray.add(new CustomMaker("동백섬",R.drawable.sub_icon_look,Double.parseDouble("35.152374"),Double.parseDouble("129.151344"),"동백섬"));
         mMyMarkersArray.add(new CustomMaker("광안대교",R.drawable.sub_icon_fire,Double.parseDouble("35.145826"),Double.parseDouble("129.128496"),"Gwangan Bridge"));
         mMyMarkersArray.add(new CustomMaker("황령산",R.drawable.sub_icon_fire,Double.parseDouble("35.158084"),Double.parseDouble("129.082707"),"Gwangryeongsan"));
-//        mMyMarkersArray.add(new CustomMaker("부산문화회관",R.drawable.sub_icon_fire,Double.parseDouble("35.127384"),Double.parseDouble("129.093906"),"부산문화회관"));
 
         plotMarkers(mMyMarkersArray);
 
@@ -106,10 +100,7 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
 
                 currentMarker = mMap.addMarker(markerOption);
                 mMarkersHashMap.put(currentMarker, myMarker);
-
                 mMap.setInfoWindowAdapter(new MarkerInfoWindowAdapter(this.getContext()));
-
-//                mMap.
 
                 mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
@@ -172,11 +163,6 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
         }
     }
 
-    @Override
-    public  void onPause(){
-        super.onPause();
-//        currentMarker.hideInfoWindow();
-    }
     // 프래그먼트의 뷰 인스턴스
     @Override
     public void onDestroyView() {
@@ -194,8 +180,13 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
         if(isVisibleToUser)
         {
             Log.d("실험","성공");
-//            data = ((ActivitySub)getActivity()).position;
-            System.out.println("성공! data = " + data);
+            try {
+                data = ((ActivitySub) getActivity()).position;
+                System.out.println("성공! data = " + data);
+            }catch (NullPointerException e){
+                e.printStackTrace();
+            }
+
         }else
             {
                 try

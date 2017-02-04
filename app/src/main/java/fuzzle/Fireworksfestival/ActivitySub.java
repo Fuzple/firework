@@ -16,6 +16,7 @@ public class ActivitySub extends AppCompatActivity{
     TabLayout tabLayout;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     int i;
+    //부산볼거리 페이지의 포지션값을 저장하는 변수
     public int position = 0;
 
     @Override
