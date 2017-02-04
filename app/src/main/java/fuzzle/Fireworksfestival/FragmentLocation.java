@@ -14,6 +14,7 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,16 +47,14 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
     static View v;
     int position;
 
+    int data = 0;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         try{
-//            if(view == null) {
-                view = inflater.inflate(R.layout.fagment_location, container, false);
-
-//            }
+            view = inflater.inflate(R.layout.fagment_location, container, false);
         }catch (InflateException e){
-
 // 구글맵 View가 이미 inflate되어 있는 상태이므로, 에러를 무시합니다.
         }
 // 이후 메서드 구현 계속
@@ -66,6 +65,9 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
             mapFragment.getMapAsync(this);
             mMap = null;
         }
+
+
+
         return view;
     }
 
@@ -106,11 +108,14 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
                 mMarkersHashMap.put(currentMarker, myMarker);
 
                 mMap.setInfoWindowAdapter(new MarkerInfoWindowAdapter(this.getContext()));
+
+//                mMap.
+
                 mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
                     public void onInfoWindowClick(Marker marker) {
                         Intent intent = new Intent(getActivity(), ActivityMapLocation.class);
-
+                        System.out.println("position = " + position);
                         for(position=0; position < mMyMarkersArray.size(); position++)
                         {
                             if(marker.getPosition().latitude == mMyMarkersArray.get(position).getmLatitude() && marker.getPosition().longitude == mMyMarkersArray.get(position).getmLongitude())
@@ -183,6 +188,28 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
             }
         }
     }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser){
+        if(isVisibleToUser)
+        {
+            Log.d("실험","성공");
+//            data = ((ActivitySub)getActivity()).position;
+            System.out.println("성공! data = " + data);
+        }else
+            {
+                try
+                {
+                    Log.d("TEST", "LifeCycle invisible(second)");
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+
+            }
+            super.setUserVisibleHint(isVisibleToUser);
+        }
 //    @Override
 //    public void onDestroy() {
 //        recycleView(view.findViewById(R.id.SubBg));

@@ -1,27 +1,16 @@
 package fuzzle.Fireworksfestival;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
 
 public class FragmentLook extends Fragment {
 
@@ -30,9 +19,13 @@ public class FragmentLook extends Fragment {
     ArrayList<CustomlistItem> list_ItemArrayList;
     View view;
 
+    FragmentLocation location = new FragmentLocation();
+    Bundle bundle = new Bundle();
+//    OnHeadlineSelectedListener mCallback;
+
     @Nullable
     @Override
-    public View onCreateView(final LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState)
+    public View onCreateView(final LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable final Bundle savedInstanceState)
     {
         if(view == null) {
             view = inflater.inflate(R.layout.fragment_look, container, false);
@@ -72,16 +65,39 @@ public class FragmentLook extends Fragment {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent intent = new Intent(getActivity(),ActivityLook.class);
+//                intent.putExtra("placeImg", list_ItemArrayList.get(position).getImg());
+//                intent.putExtra("topText", list_ItemArrayList.get(position).getTitle());
+//                intent.putExtra("data",position);
+//                startActivity(intent);
+                ActivitySub sub = new ActivitySub();
+//                sub.
 
-                Intent intent = new Intent(getActivity(),ActivityLook.class);
-                intent.putExtra("placeImg", list_ItemArrayList.get(position).getImg());
-                intent.putExtra("topText", list_ItemArrayList.get(position).getTitle());
-                intent.putExtra("data",position);
-                startActivity(intent);
+
+//                mCallback.onArticleSelected(position);
+                ((ActivitySub)getActivity()).tabLayout.getTabAt(2).select();
+                ((ActivitySub)getActivity()).position = position;
+
+                bundle.putInt("data",position);
+                location.setArguments(bundle);
             }
 
         });
 
         return view;
     }
+//    public interface OnHeadlineSelectedListener{
+//        public void onArticleSelected(int position);
+//    }
+//    @Override
+//    public void onAttach(Activity activity) {
+//        super.onAttach(activity);
+//
+//        try {
+//            mCallback = (OnHeadlineSelectedListener)activity;
+//        }catch (ClassCastException e){
+//            throw new ClassCastException(activity.toString() + "must implement OnHeadlineSelectListener");
+//        }
+//    }
 }
+

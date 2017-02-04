@@ -35,7 +35,7 @@ public class ActivityMain extends AppCompatActivity {
 
     //데이터 베이스 변수
     private MySQLiteOpenHelper helper;
-    String dbName = "st_file.db";
+    String dbName = "firework.db";
     int dbVersion = 1; // 데이터베이스 버전
     private SQLiteDatabase db;      //db변수
     String tag = "SQLite"; // Log 에 사용할 tag
@@ -74,11 +74,11 @@ public class ActivityMain extends AppCompatActivity {
         // 데이터베이스에 Mark 값을 추가한다.
         //코치마크를 첫 실행에만 나오게 하기 위해 사용했음.
         try {
-            if (name.equals("Mark")) {
+            if (name.equals("off")) {
                 Log.e(tag, "데이터베이스를 찾지 못하였습니다.");
             } else if(name.equals("")){
                 coachmark();
-//                insert();
+                insert();
             }
         }catch (NullPointerException e){
             e.printStackTrace();
@@ -136,21 +136,21 @@ public class ActivityMain extends AppCompatActivity {
 
     }
     void delete() {
-        db.execSQL("delete from mytable");
+        db.execSQL("delete from firework");
         Log.d(tag, "delete 완료");
     }
 
     void select() {
-        Cursor c = db.rawQuery("select * from mytable;", null);
+        Cursor c = db.rawQuery("select * from firework", null);
         while(c.moveToNext()) {
             id = c.getInt(0);
-            name = c.getString(1);
+            name = c.getString(2);
             Log.d(tag,"id:"+id+",name:"+name);
         }
     }
 
     void insert () {
-        db.execSQL("insert into mytable (name) values('Mark');");
+        db.execSQL("insert into firework (lenguage,menual) values('korea','off');");
         Log.d(tag, "insert 성공~!");
     }
 

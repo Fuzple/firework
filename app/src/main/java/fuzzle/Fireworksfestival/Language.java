@@ -56,11 +56,15 @@ public class Language extends AppCompatActivity {
 
         select();
 
-        if (name.equals(null)) {
+        if (name.equals("")) {
             Log.e(tag, "데이터베이스를 찾지 못하였습니다.");
-        } else if(name.equals("")){
+        } else if(name.equals("korea")){
 //                insert();
-            Log.e(tag, "안에 아무것도 없다");
+            Intent intent =  new Intent(getApplicationContext(),ActivityMain.class);
+            startActivity(intent);
+            Log.e(tag, "검색 완료");
+            finish();
+
         }
 
         radioGroup = (RadioGroup)findViewById(R.id.radiogroup);
@@ -107,7 +111,7 @@ public class Language extends AppCompatActivity {
         Log.d(tag, "insert 성공~!");
     }
     void select() {
-        Cursor c = db.rawQuery("select * from firework;", null);
+        Cursor c = db.rawQuery("select * from firework", null);
         while(c.moveToNext()) {
             id = c.getInt(0);
             name = c.getString(1);

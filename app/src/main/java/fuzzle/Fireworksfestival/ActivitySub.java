@@ -1,17 +1,7 @@
 package fuzzle.Fireworksfestival;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v4.app.Fragment;
@@ -19,42 +9,19 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-public class ActivitySub extends AppCompatActivity {
+public class ActivitySub extends AppCompatActivity{
 
     private ViewPager mViewPager;
     TabLayout tabLayout;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     int i;
-
-    FragmentLook fragmentlook = new FragmentLook();
+    public int position = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub);
-
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeResource(getResources(), R.id.language_background, options);
-        int imageHeight = options.outHeight;
-        int imageWidth = options.outWidth;
-        String imageType = options.outMimeType;
-
-//        ImageView sub_background = (ImageView)findViewById(R.id.SubBg);
-//        sub_background.setImageDrawable(new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), R.drawable.sub_background)));
-
-       // sub_background.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.sub_background, 100, 100));
 
         i=getIntent().getExtras().getInt("btnId");
 
@@ -62,7 +29,10 @@ public class ActivitySub extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),this);
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        if (null == mViewPager) {
+            mViewPager = (ViewPager) findViewById(R.id.container);
+        }
+
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -128,27 +98,7 @@ public class ActivitySub extends AppCompatActivity {
         public int getCount() {
             return 4;
         }
-
-
     }
-
-//    public boolean onKeyDown(int keyCode, KeyEvent event)    {
-//        if(keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0)        {
-//            // 팝업을 띄움
-//            if(fragmentlook.i ==  0) {
-////                fragmentlook.lookFrame2.setVisibility(View.INVISIBLE);
-////                fragmentlook.lookFrame1.setVisibility(View.VISIBLE);
-//                System.out.println("성공");
-//            }
-//            else{
-//                System.out.println("실일필");
-//                System.out.println(fragmentlook.i);
-//            }
-//            return true;
-//        }
-//        return super.onKeyDown(keyCode, event);
-//    }
-
 
 //    @Override
 //    public void onBackPressed() {
@@ -160,75 +110,6 @@ public class ActivitySub extends AppCompatActivity {
 //                new FragmentLook().onBackPressed();
 //                break;
 //        }
-//    }
-
-    public static int calculateInSampleSize(
-            BitmapFactory.Options options, int reqWidth, int reqHeight) {
-        // Raw height and width of image
-        final int height = options.outHeight;
-        final int width = options.outWidth;
-        int inSampleSize = 1;
-
-        if (height > reqHeight || width > reqWidth) {
-
-            final int halfHeight = height / 2;
-            final int halfWidth = width / 2;
-
-            // Calculate the largest inSampleSize value that is a power of 2 and keeps both
-            // height and width larger than the requested height and width.
-            while ((halfHeight / inSampleSize) >= reqHeight
-                    && (halfWidth / inSampleSize) >= reqWidth) {
-                inSampleSize *= 2;
-            }
-        }
-
-        return inSampleSize;
-    }
-    public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId,
-                                                         int reqWidth, int reqHeight) {
-
-        // First decode with inJustDecodeBounds=true to check dimensions
-        final BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeResource(res, resId, options);
-
-        // Calculate inSampleSize
-        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
-
-        // Decode bitmap with inSampleSize set
-        options.inJustDecodeBounds = false;
-        return BitmapFactory.decodeResource(res, resId, options);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-//    @Override
-//    public void onDestroy() {
-//        super.onDestroy();
-//        recycleView(findViewById(R.id.SubBg));
-//    }
-//
-//    private void recycleView(View view) {
-//        if(view != null) {
-//            Drawable bg = view.getBackground();
-//            if(bg != null) {
-//                bg.setCallback(null);
-//                ((BitmapDrawable)bg).getBitmap().recycle();
-//                view.setBackgroundDrawable(null);
-//            }
-//        }
-//    }
-//    public boolean onKeyDown(int keyCode, KeyEvent event)    {
-//        if(keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0)        {
-//            Intent intent = new Intent(getApplicationContext(),ActivityMain.class);
-//            startActivity(intent);
-//            finish();
-//            return true;
-//        }
-//        return super.onKeyDown(keyCode, event);
 //    }
 }
 
