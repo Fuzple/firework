@@ -1,19 +1,11 @@
 package fuzzle.Fireworksfestival;
 
-import android.app.Activity;
-import android.app.ActivityGroup;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Handler;
-import android.os.Message;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
@@ -21,11 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -34,14 +24,13 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class FragmentLocation extends Fragment implements OnMapReadyCallback {
     private GoogleMap mMap;
     private ArrayList<CustomMaker> mMyMarkersArray = new ArrayList<CustomMaker>();
     private HashMap<Marker, CustomMaker> mMarkersHashMap;
     Marker currentMarker;
+    MarkerOptions markerOption;
     SupportMapFragment mapFragment;
     static View view;
     static View v;
@@ -54,7 +43,7 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
         try{
             view = inflater.inflate(R.layout.fagment_location, container, false);
         }catch (InflateException e){
-        // 구글맵 View가 이미 inflate되어 있는 상태이므로, 에러를 무시합니다.
+            // 구글맵 View가 이미 inflate되어 있는 상태이므로, 에러를 무시합니다.
         }
         // 이후 메서드 구현 계속
         if(mMap == null) {
@@ -67,7 +56,7 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
     }
 
     @Override
-   public void onMapReady(GoogleMap googleMap)
+    public void onMapReady(GoogleMap googleMap)
     {
         mMap = googleMap;
         // 마커와 객체 HashMap를 초기화
@@ -87,35 +76,37 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
         plotMarkers(mMyMarkersArray);
 
         LatLng sydney = new LatLng(35.145854,129.128577);
+
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,14));
     }
 
     private void plotMarkers(final ArrayList<CustomMaker> markers)
     {
-        if(markers.size() > 0) {
-            for (final CustomMaker myMarker : markers) {
+        if(markers.size() > -1) {
+            for (CustomMaker myMarker : markers) {
 
                 //사용자 정의 아이콘 및 기타 옵션을 사용자 마커 만들기
-                final MarkerOptions markerOption = new MarkerOptions().position(new LatLng(myMarker.getmLatitude(), myMarker.getmLongitude()));
+                markerOption = new MarkerOptions().position(new LatLng(myMarker.getLatitude(), myMarker.getLongitude()));
 
                 currentMarker = mMap.addMarker(markerOption);
                 mMarkersHashMap.put(currentMarker, myMarker);
                 mMap.setInfoWindowAdapter(new MarkerInfoWindowAdapter(this.getContext()));
 
-                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                //정보창 클릭시 다음 화면에 값을 넘겨주고 화면을 전환한다
+               mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
                     public void onInfoWindowClick(Marker marker) {
                         Intent intent = new Intent(getActivity(), ActivityMapLocation.class);
                         System.out.println("position = " + position);
                         for(position=0; position < mMyMarkersArray.size(); position++)
                         {
-                            if(marker.getPosition().latitude == mMyMarkersArray.get(position).getmLatitude() && marker.getPosition().longitude == mMyMarkersArray.get(position).getmLongitude())
+                            if(marker.getPosition().latitude == mMyMarkersArray.get(position).getLatitude() && marker.getPosition().longitude == mMyMarkersArray.get(position).getLongitude())
                             {
                                 break;
                             }
                         }
 
-                        int i = mMyMarkersArray.get(position).getmIcon();
+                        int i = mMyMarkersArray.get(position).getIcon();
                         intent.putExtra("map", i);
                         intent.putExtra("placePosition",position);
                         startActivity(intent);
@@ -124,7 +115,7 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
             }
         }
     }
-    //InfoWindowAdapter
+    //정보창 어댑터
     class MarkerInfoWindowAdapter implements GoogleMap.InfoWindowAdapter
     {
         Context mContext;
@@ -145,15 +136,16 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
             CustomMaker myMarker = mMarkersHashMap.get(marker);
 
             try{
+                //커스텀 뷰를 현제화면과 연결하고 리스트에 저장된 값을 출력한다.
                 v = getActivity().getLayoutInflater().inflate(R.layout.custom_infowindow, null);
 
                 ImageView markerIcon = (ImageView) v.findViewById(R.id.marker_icon);
                 TextView markerLabel = (TextView) v.findViewById(R.id.marker_label);
                 TextView anotherLabel = (TextView) v.findViewById(R.id.another_label);
 
-                markerIcon.setImageDrawable(new BitmapDrawable(getResources(),BitmapFactory.decodeResource(getResources(),myMarker.getmIcon())));
-                markerLabel.setText(myMarker.getmLabel());
-                anotherLabel.setText(myMarker.getString());
+                markerIcon.setImageDrawable(new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(),myMarker.getIcon())));
+                markerLabel.setText(myMarker.gettitle());
+                anotherLabel.setText(myMarker.getprice());
 
                 v.onFinishTemporaryDetach();
             }catch (NullPointerException e){
@@ -181,26 +173,44 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
         {
             Log.d("실험","성공");
             try {
-                data = ((ActivitySub) getActivity()).position;
-                System.out.println("성공! data = " + data);
+                if(((ActivitySub) getActivity()).position != null){
+                    data = Integer.parseInt(((ActivitySub) getActivity()).position);
+                    System.out.println("성공! data = " + data);
+
+                    ArrayList<CustomMaker> markerinfo = new ArrayList<CustomMaker>();
+                    markerinfo.add(new CustomMaker(mMyMarkersArray.get(data).gettitle(),mMyMarkersArray.get(data).getIcon(),mMyMarkersArray.get(data).getLatitude(),mMyMarkersArray.get(data).getLongitude(),mMyMarkersArray.get(data).getprice()));
+                    markerOption = new MarkerOptions().position(new LatLng(mMyMarkersArray.get(data).getLatitude(), mMyMarkersArray.get(data).getLongitude()));
+
+                    plotMarkers(markerinfo);
+                    LatLng focus = new LatLng(mMyMarkersArray.get(data).getLatitude(),mMyMarkersArray.get(data).getLongitude());
+                    currentMarker.showInfoWindow();
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(focus,14));
+                }
+                else if(((ActivitySub) getActivity()).position == null){
+                    currentMarker.hideInfoWindow();
+                }
             }catch (NullPointerException e){
                 e.printStackTrace();
             }
 
         }else
+        {
+            try
             {
-                try
-                {
-                    Log.d("TEST", "LifeCycle invisible(second)");
+                Log.d("TEST", "LifeCycle invisible(second)");
+                ((ActivitySub) getActivity()).position = null;
+                if(((ActivitySub) getActivity()).position == null) {
+                    currentMarker.hideInfoWindow();
                 }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-
             }
-            super.setUserVisibleHint(isVisibleToUser);
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+
         }
+        super.setUserVisibleHint(isVisibleToUser);
+    }
 //    @Override
 //    public void onDestroy() {
 //        recycleView(view.findViewById(R.id.SubBg));

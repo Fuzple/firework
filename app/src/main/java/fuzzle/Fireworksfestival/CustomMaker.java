@@ -9,70 +9,67 @@ import android.graphics.drawable.BitmapDrawable;
 
 public class CustomMaker {
 
-        private String mLabel;
-        private int mIcon;
-        private Double mLatitude;
-        private Double mLongitude;
-        private String string;
+        private String title;
+        private int Icon;
+        private Double Latitude;
+        private Double Longitude;
+        private String price;
 
-        public CustomMaker(String label, int icon, Double latitude, Double longitude,String another_label)
+        public CustomMaker(String title, int icon, Double latitude, Double longitude,String price)
         {
-            this.mLabel = label;
-            this.mLatitude = latitude;
-            this.mLongitude = longitude;
-            this.mIcon = icon;
-            this.string = another_label;
+            this.title = title;
+            this.Latitude = latitude;
+            this.Longitude = longitude;
+            this.Icon = icon;
+            this.price = price;
         }
 
-        public String getmLabel()
+        public String gettitle()
         {
-            return mLabel;
+            return title;
         }
 
-        public void setmLabel(String mLabel)
+        public void settitle(String title)
         {
-            this.mLabel = mLabel;
+            this.title = title;
         }
 
-        public String getString()
+        public String getprice()
         {
-            return string;
+            return price;
         }
-        public void setString(String string)
+        public void setprice(String price)
         {
-            this.string = string;
-        }
-
-        public int getmIcon()
-        {
-            return mIcon;
+            this.price = price;
         }
 
-        public void setmIcon(int icon)
+        public int getIcon()
         {
-            this.mIcon = icon;
+            return Icon;
         }
 
-        public Double getmLatitude()
+        public void setIcon(int icon)
         {
-            return mLatitude;
+            this.Icon = icon;
         }
 
-        public void setmLatitude(Double mLatitude)
+        public Double getLatitude()
         {
-            this.mLatitude = mLatitude;
+            return Latitude;
         }
 
-        public Double getmLongitude()
+        public void setLatitude(Double mLatitude)
         {
-            return mLongitude;
+            this.Latitude = mLatitude;
         }
 
-        public void setmLongitude(Double mLongitude)
+        public Double getLongitude()
         {
-            this.mLongitude = mLongitude;
+            return Longitude;
         }
 
-
-
+        public void setLongitude(Double mLongitude)
+        {
+            this.Longitude = mLongitude;
+        }
 }

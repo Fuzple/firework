@@ -37,26 +37,14 @@ public class FragmentLook extends Fragment {
 
         list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"광안리 해수욕장"));
         list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"마린시티"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"만락동 수변공원"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"광안리 해수욕장"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"마린시티"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"만락동 수변공원"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"광안리 해수욕장"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"마린시티"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"만락동 수변공원"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"광안리 해수욕장"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"마린시티"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"만락동 수변공원"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"광안리 해수욕장"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"마린시티"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"만락동 수변공원"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"광안리 해수욕장"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"마린시티"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"만락동 수변공원"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"광안리 해수욕장"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"마린시티"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"만락동 수변공원"));
-
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"아르피나"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"시립미술관·벡스코"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"센텀시티"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"수변공원"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"영화의 전당"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"동백섬"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"광안대교"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"황령산"));
 
         adapter = new AdapterCustomlist(getActivity(),list_ItemArrayList);
 
@@ -70,12 +58,11 @@ public class FragmentLook extends Fragment {
 //                intent.putExtra("topText", list_ItemArrayList.get(position).getTitle());
 //                intent.putExtra("data",position);
 //                startActivity(intent);
-                ActivitySub sub = new ActivitySub();
-                ((ActivitySub)getActivity()).tabLayout.getTabAt(2).select();
-                ((ActivitySub)getActivity()).position = position;
+                ((ActivitySub)getActivity()).position = String.valueOf(position);
 
                 bundle.putInt("data",position);
                 location.setArguments(bundle);
+                ((ActivitySub)getActivity()).tabLayout.getTabAt(2).select();
             }
 
         });
