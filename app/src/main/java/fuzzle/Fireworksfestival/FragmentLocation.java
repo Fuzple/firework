@@ -105,10 +105,12 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
                                 break;
                             }
                         }
-
+                        String placeName =mMyMarkersArray.get(position).gettitle();
                         int i = mMyMarkersArray.get(position).getIcon();
-                        intent.putExtra("map", i);
+
+                        intent.putExtra("placeImg", i);
                         intent.putExtra("placePosition",position);
+                        intent.putExtra("placeName",placeName);
                         startActivity(intent);
                     }
                 });
