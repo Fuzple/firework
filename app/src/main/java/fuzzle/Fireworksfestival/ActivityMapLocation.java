@@ -53,7 +53,7 @@ public class ActivityMapLocation extends AppCompatActivity {
 
         tour.setImageResource(i);
         locationText.setText(sub.sb);
-        placeNameText.setText(placeName);
+        placeNameText.setText("  " + placeName);
     }
     @Override
     protected void onStart() {

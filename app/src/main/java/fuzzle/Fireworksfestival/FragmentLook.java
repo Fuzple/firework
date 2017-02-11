@@ -21,7 +21,6 @@ public class FragmentLook extends Fragment {
 
     FragmentLocation location = new FragmentLocation();
     Bundle bundle = new Bundle();
-//    OnHeadlineSelectedListener mCallback;
 
     @Nullable
     @Override

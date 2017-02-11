@@ -93,7 +93,7 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
                 mMap.setInfoWindowAdapter(new MarkerInfoWindowAdapter(this.getContext()));
 
                 //정보창 클릭시 다음 화면에 값을 넘겨주고 화면을 전환한다
-               mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
                     public void onInfoWindowClick(Marker marker) {
                         Intent intent = new Intent(getActivity(), ActivityMapLocation.class);
@@ -136,7 +136,6 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
         public View getInfoContents(Marker marker)
         {
             CustomMaker myMarker = mMarkersHashMap.get(marker);
-
             try{
                 //커스텀 뷰를 현제화면과 연결하고 리스트에 저장된 값을 출력한다.
                 v = getActivity().getLayoutInflater().inflate(R.layout.custom_infowindow, null);
