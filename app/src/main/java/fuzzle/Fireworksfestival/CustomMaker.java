@@ -11,17 +11,20 @@ public class CustomMaker {
 
         private String title;
         private int Icon;
+        private int placeinfo;
         private Double Latitude;
         private Double Longitude;
         private String price;
 
-        public CustomMaker(String title, int icon, Double latitude, Double longitude,String price)
+        public CustomMaker(String title, int icon, Double latitude, Double longitude,String price,int placeInfo)
         {
             this.title = title;
             this.Latitude = latitude;
             this.Longitude = longitude;
             this.Icon = icon;
             this.price = price;
+            this.placeinfo = placeInfo;
+
         }
 
         public String gettitle()
@@ -38,6 +41,7 @@ public class CustomMaker {
         {
             return price;
         }
+
         public void setprice(String price)
         {
             this.price = price;
@@ -71,5 +75,12 @@ public class CustomMaker {
         public void setLongitude(Double mLongitude)
         {
             this.Longitude = mLongitude;
+        }
+
+        public int getplaceInfo(){
+            return placeinfo;
+        }
+        public void setPlaceinfo(int placeinfo){
+            this.placeinfo = placeinfo;
         }
 }

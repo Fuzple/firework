@@ -31,9 +31,9 @@ public class FragmentTraffic extends Fragment {
 
         list_ItemArrayList = new ArrayList<CustomlistItem>();
 
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"광안리 해수욕장 증발"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"마린시티 파괴"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"만락동 수변공원 좀비출현"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"임시 교통정보1"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"임시 교통정보2"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"임시 교통정보3"));
 
         adapter = new AdapterCustomlist(getActivity(),list_ItemArrayList);
 

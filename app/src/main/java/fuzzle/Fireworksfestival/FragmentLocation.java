@@ -37,6 +37,11 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
     int position;
     int data = 0;
 
+    // raw에 저장된 파일들을 순서대로 배열에 저장
+    int[] info = {R.raw.location_gwangalli_beach,R.raw.location_marine_city,R.raw.location_arpina,R.raw.location_busan_museum_of_art_bexco,
+            R.raw.location_centum_city,R.raw.location_waterfront_park,R.raw.location_busan_cinema_center,R.raw.location_dongbaek_island,
+            R.raw.location_gwangan_bridge,R.raw.location_hwangryeong_mt};
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,16 +67,16 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
         // 마커와 객체 HashMap를 초기화
         mMarkersHashMap = new HashMap<Marker, CustomMaker>();
 
-        mMyMarkersArray.add(new CustomMaker("광안리 해수욕장",R.drawable.place_gwangalli ,Double.parseDouble("35.152833"),Double.parseDouble("129.118771"),"광안리 해수욕장"));
-        mMyMarkersArray.add(new CustomMaker("마린시티",R.drawable.place_marine_city,Double.parseDouble("35.154574"),Double.parseDouble("129.142770"),"영화의전당 주변"));
-        mMyMarkersArray.add(new CustomMaker("아르피나",R.drawable.sub_icon_look,Double.parseDouble("35.164797"),Double.parseDouble("129.138338"),"부산 관광공사"));
-        mMyMarkersArray.add(new CustomMaker("시립미술관·벡스코",R.drawable.sub_icon_location,Double.parseDouble("35.166760"),Double.parseDouble("129.137024"),"Busan Museum of Art · Bexco"));
-        mMyMarkersArray.add(new CustomMaker("센텀시티",R.drawable.sub_icon_fire,Double.parseDouble("35.168588"),Double.parseDouble("129.130678"),"Centum City"));
-        mMyMarkersArray.add(new CustomMaker("수변공원",R.drawable.place_witerside_park,Double.parseDouble("35.154514"),Double.parseDouble("129.133176"),"민락동 수변공원"));
-        mMyMarkersArray.add(new CustomMaker("영화의 전당",R.drawable.sub_icon_look,Double.parseDouble("35.171173"),Double.parseDouble("129.127199"),"Busan Cinema Center"));
-        mMyMarkersArray.add(new CustomMaker("동백섬",R.drawable.sub_icon_look,Double.parseDouble("35.152374"),Double.parseDouble("129.151344"),"동백섬"));
-        mMyMarkersArray.add(new CustomMaker("광안대교",R.drawable.sub_icon_fire,Double.parseDouble("35.145826"),Double.parseDouble("129.128496"),"Gwangan Bridge"));
-        mMyMarkersArray.add(new CustomMaker("황령산",R.drawable.sub_icon_fire,Double.parseDouble("35.158084"),Double.parseDouble("129.082707"),"Gwangryeongsan"));
+        mMyMarkersArray.add(new CustomMaker("광안리 해수욕장",R.drawable.place_gwangalli ,Double.parseDouble("35.152833"),Double.parseDouble("129.118771"),"광안리 해수욕장",0));
+        mMyMarkersArray.add(new CustomMaker("마린시티",R.drawable.place_marine_city,Double.parseDouble("35.154574"),Double.parseDouble("129.142770"),"영화의전당 주변",1));
+        mMyMarkersArray.add(new CustomMaker("아르피나",R.drawable.sub_icon_look,Double.parseDouble("35.164797"),Double.parseDouble("129.138338"),"부산 관광공사",2));
+        mMyMarkersArray.add(new CustomMaker("시립미술관·벡스코",R.drawable.sub_icon_location,Double.parseDouble("35.166760"),Double.parseDouble("129.137024"),"Busan Museum of Art · Bexco",3));
+        mMyMarkersArray.add(new CustomMaker("센텀시티",R.drawable.sub_icon_fire,Double.parseDouble("35.168588"),Double.parseDouble("129.130678"),"Centum City",4));
+        mMyMarkersArray.add(new CustomMaker("수변공원",R.drawable.place_witerside_park,Double.parseDouble("35.154514"),Double.parseDouble("129.133176"),"민락동 수변공원",5));
+        mMyMarkersArray.add(new CustomMaker("영화의 전당",R.drawable.sub_icon_look,Double.parseDouble("35.171173"),Double.parseDouble("129.127199"),"Busan Cinema Center",6));
+        mMyMarkersArray.add(new CustomMaker("동백섬",R.drawable.sub_icon_look,Double.parseDouble("35.152374"),Double.parseDouble("129.151344"),"동백섬",7));
+        mMyMarkersArray.add(new CustomMaker("광안대교",R.drawable.sub_icon_fire,Double.parseDouble("35.145826"),Double.parseDouble("129.128496"),"Gwangan Bridge",8));
+        mMyMarkersArray.add(new CustomMaker("황령산",R.drawable.sub_icon_fire,Double.parseDouble("35.158084"),Double.parseDouble("129.082707"),"Gwangryeongsan",9));
 
         plotMarkers(mMyMarkersArray);
 
@@ -143,10 +148,14 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
                 ImageView markerIcon = (ImageView) v.findViewById(R.id.marker_icon);
                 TextView markerLabel = (TextView) v.findViewById(R.id.marker_label);
                 TextView anotherLabel = (TextView) v.findViewById(R.id.another_label);
+                TextView marker_info = (TextView)v.findViewById(R.id.marker_info);
+
+                FileReader infomation =  new FileReader(getActivity(),info[myMarker.getplaceInfo()]);
 
                 markerIcon.setImageDrawable(new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(),myMarker.getIcon())));
                 markerLabel.setText(myMarker.gettitle());
                 anotherLabel.setText(myMarker.getprice());
+                marker_info.setText(infomation.sb);
 
                 v.onFinishTemporaryDetach();
             }catch (NullPointerException e){
@@ -179,7 +188,7 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
                     System.out.println("성공! data = " + data);
 
                     ArrayList<CustomMaker> markerinfo = new ArrayList<CustomMaker>();
-                    markerinfo.add(new CustomMaker(mMyMarkersArray.get(data).gettitle(),mMyMarkersArray.get(data).getIcon(),mMyMarkersArray.get(data).getLatitude(),mMyMarkersArray.get(data).getLongitude(),mMyMarkersArray.get(data).getprice()));
+                    markerinfo.add(new CustomMaker(mMyMarkersArray.get(data).gettitle(),mMyMarkersArray.get(data).getIcon(),mMyMarkersArray.get(data).getLatitude(),mMyMarkersArray.get(data).getLongitude(),mMyMarkersArray.get(data).getprice(),mMyMarkersArray.get(data).getplaceInfo()));
                     markerOption = new MarkerOptions().position(new LatLng(mMyMarkersArray.get(data).getLatitude(), mMyMarkersArray.get(data).getLongitude()));
 
                     plotMarkers(markerinfo);

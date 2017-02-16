@@ -22,12 +22,30 @@
             android:layout_width="100dp"
             android:layout_height="100dp"/>
 
-        <TextView
-            android:id="@+id/marker_label"
-            android:layout_marginLeft="5dp"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textStyle="bold" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/marker_label"
+                android:layout_marginLeft="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:textStyle="bold" />
+
+            <TextView
+                android:text="45654654654654654645645654654654678978979789879879879879879312312312312312312321354645678987964565431235654698798764565312354654678978654653123546459678"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/marker_info"
+                android:lines="2"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
