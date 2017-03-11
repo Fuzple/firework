@@ -1,26 +1,10 @@
 package fuzzle.Fireworksfestival;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.support.v4.app.FragmentActivity;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class ActivityMapLocation extends AppCompatActivity {
 
@@ -55,26 +39,22 @@ public class ActivityMapLocation extends AppCompatActivity {
         locationText.setText(sub.sb);
         placeNameText.setText("  " + placeName);
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
 
-    @Override
-    protected void onDestroy() {
-        Log.d("OOMTEST", "onDestroy");
-        recycleBitmap(tour);
+//    @Override
+//    protected void onDestroy() {
+//        Log.d("OOMTEST", "onDestroy");
+//        recycleBitmap(tour);
+//
+//        super.onDestroy();
+//    }
 
-        super.onDestroy();
-    }
-
-    private static void recycleBitmap(ImageView iv) {
-        Drawable d = iv.getDrawable();
-        if (d instanceof BitmapDrawable) {
-            Bitmap b = ((BitmapDrawable)d).getBitmap();
-            b.recycle();
-        } // 현재로서는 BitmapDrawable 이외의 drawable 들에 대한 직접적인 메모리 해제는 불가능하다.
-
-        d.setCallback(null);
-    }
+//    private static void recycleBitmap(ImageView iv) {
+//        Drawable d = iv.getDrawable();
+//        if (d instanceof BitmapDrawable) {
+//            Bitmap b = ((BitmapDrawable)d).getBitmap();
+//            b.recycle();
+//        } // 현재로서는 BitmapDrawable 이외의 drawable 들에 대한 직접적인 메모리 해제는 불가능하다.
+//
+//        d.setCallback(null);
+//    }
 }

@@ -76,7 +76,8 @@ public class ActivityMain extends AppCompatActivity {
         btn_gamestart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                select (); // select 문 - 조회
+                Intent intent = new Intent(getApplicationContext(),Game.class);
+                startActivity(intent);
             }
         });
 

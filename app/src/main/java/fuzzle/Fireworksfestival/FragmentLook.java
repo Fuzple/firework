@@ -52,34 +52,13 @@ public class FragmentLook extends Fragment {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent intent = new Intent(getActivity(),ActivityLook.class);
-//                intent.putExtra("placeImg", list_ItemArrayList.get(position).getImg());
-//                intent.putExtra("topText", list_ItemArrayList.get(position).getTitle());
-//                intent.putExtra("data",position);
-//                startActivity(intent);
-                ((ActivitySub)getActivity()).position = String.valueOf(position);
-
-                bundle.putInt("data",position);
-                location.setArguments(bundle);
-                ((ActivitySub)getActivity()).tabLayout.getTabAt(2).select();
+                ((ActivitySub)getActivity()).position = String.valueOf(position);   //부모클래스에게 현제 포지션의 값을 전달한다.
+                ((ActivitySub)getActivity()).tabLayout.getTabAt(2).select();    //장소안내 페이지로 화면을 전환한다
             }
 
         });
 
         return view;
     }
-//    public interface OnHeadlineSelectedListener{
-//        public void onArticleSelected(int position);
-//    }
-//    @Override
-//    public void onAttach(Activity activity) {
-//        super.onAttach(activity);
-//
-//        try {
-//            mCallback = (OnHeadlineSelectedListener)activity;
-//        }catch (ClassCastException e){
-//            throw new ClassCastException(activity.toString() + "must implement OnHeadlineSelectListener");
-//        }
-//    }
 }
 

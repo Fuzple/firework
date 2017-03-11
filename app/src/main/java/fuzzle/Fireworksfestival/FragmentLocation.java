@@ -179,6 +179,7 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser){
+        //현제 클래스가 화면에 보여질때.
         if(isVisibleToUser)
         {
             Log.d("실험","성공");
@@ -196,18 +197,21 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
                     currentMarker.showInfoWindow();
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(focus,14));
                 }
+                //현제 화면에서 벗어났을때 인포윈도우를 사라지게 한다.
                 else if(((ActivitySub) getActivity()).position == null){
                     currentMarker.hideInfoWindow();
                 }
             }catch (NullPointerException e){
                 e.printStackTrace();
             }
-
-        }else
+        }
+        //현제 페이지가 화면에서 벗어났을 때
+        else
         {
             try
             {
                 Log.d("TEST", "LifeCycle invisible(second)");
+                //포지션 값을 초기화한다.
                 ((ActivitySub) getActivity()).position = null;
                 if(((ActivitySub) getActivity()).position == null) {
                     currentMarker.hideInfoWindow();
