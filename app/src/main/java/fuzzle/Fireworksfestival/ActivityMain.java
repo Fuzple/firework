@@ -64,7 +64,7 @@ public class ActivityMain extends AppCompatActivity {
             if (name.equals("off")) {
 
                 Log.e(tag, "데이터베이스를 찾지 못하였습니다.");
-            } else if(name.equals("")){
+            } else if(name.equals("on")){
                 coachmark();
                 update("off");
             }
@@ -98,13 +98,13 @@ public class ActivityMain extends AppCompatActivity {
             }
         });
         btn_location.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ActivityMain.this, ActivitySub.class);
-                intent.putExtra("btnId", 2);
-                startActivityForResult(intent,0);
-            }
-        }
+                                            @Override
+                                            public void onClick(View v) {
+                                                Intent intent = new Intent(ActivityMain.this, ActivitySub.class);
+                                                intent.putExtra("btnId", 2);
+                                                startActivityForResult(intent,0);
+                                            }
+                                        }
         );
         btn_traffic.setOnClickListener(new View.OnClickListener() {
             @Override
