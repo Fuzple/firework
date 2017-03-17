@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ActivityLook extends AppCompatActivity {
-    int[] file = {R.raw.place,R.raw.place1,R.raw.place5};
+    int[] file = {R.raw.location_busan_station,R.raw.location_un_memorial_cemetery};
     //인텐트로 받은 데이터
     int getdata;
     int placeImg;

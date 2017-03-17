@@ -34,16 +34,31 @@ public class FragmentLook extends Fragment {
 
         list_ItemArrayList = new ArrayList<CustomlistItem>();
 
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"광안리 해수욕장"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli_beach,"광안리 해수욕장"));
         list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"마린시티"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"아르피나"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"시립미술관·벡스코"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"센텀시티"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_arpina,"아르피나"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_busan_museum_of_art_bexco,"시립미술관·벡스코"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_centum_city,"센텀시티"));
         list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"수변공원"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"영화의 전당"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"동백섬"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"광안대교"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_busan_cinema_center,"영화의 전당"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_dongback_island,"동백섬"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangan_bridge,"광안대교"));
         list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"황령산"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_busan_station,"부산역"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_busan_harbor_bridge,"부산항대교"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_un_memorial_cemetery,"UN기념공원"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_busan_museum,"부산박물관"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_yonghoman,"용호만 유람터미널"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_haeundae_beach,"해운대 해수욕장"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_peace_park,"평화공원"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangbokro,"광복로"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_songjeong_station,"송정역"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_east_busan_tourism,"동부산광광단지"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_fisheries_science_museum,"수산과학관"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_haedong_yonggungsa,"해동용궁사"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_songjeong_beach,"송정해수욕장"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_dalmaji_gil_road,"달맞이길"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_oryukdo_islets,"오륙도"));
 
         adapter = new AdapterCustomlist(getActivity(),list_ItemArrayList);
 
