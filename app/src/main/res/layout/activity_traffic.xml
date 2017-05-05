@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< Updated upstream
     android:background="@drawable/sub_background"
     android:orientation="vertical"
     tools:context="fuzzle.Fireworksfestival.ActivityTraffic">
@@ -51,4 +52,29 @@
         </LinearLayout>
     </ScrollView>
 
+=======
+    android:orientation="vertical"
+    tools:context="fuzzle.Fireworksfestival.ActivityTraffic">
+
+    <TextView
+        android:id="@+id/traffic_topText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="광안리 오시는길"
+        android:textColor="#000000"
+        android:textSize="36sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_margin="15dp"
+        app:srcCompat="@drawable/traffic_map" />
+>>>>>>> Stashed changes
 </LinearLayout>

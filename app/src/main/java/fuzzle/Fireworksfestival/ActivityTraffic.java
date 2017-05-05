@@ -1,5 +1,6 @@
 package fuzzle.Fireworksfestival;
 
+<<<<<<< Updated upstream
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -16,10 +17,18 @@ public class ActivityTraffic extends AppCompatActivity {
     ImageView imgTour;
     int trafficPosition;
     int[] file = {R.raw.traffic_subway,R.raw.traffic_bus,R.drawable.traffic_tour1,R.drawable.traffic_tour2};
+=======
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class ActivityTraffic extends AppCompatActivity {
+
+>>>>>>> Stashed changes
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_traffic);
+<<<<<<< Updated upstream
 
         Intent intent = getIntent();
         trafficPosition = getIntent().getExtras().getInt("trafficPosition");
@@ -45,5 +54,7 @@ public class ActivityTraffic extends AppCompatActivity {
             imgTour.setLayoutParams(params);
             imgTour.setImageResource(file[trafficPosition]);
         }
+=======
+>>>>>>> Stashed changes
     }
 }

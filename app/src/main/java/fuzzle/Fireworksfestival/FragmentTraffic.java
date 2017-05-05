@@ -1,13 +1,11 @@
 package fuzzle.Fireworksfestival;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -32,24 +30,14 @@ public class FragmentTraffic extends Fragment {
         traffic_list = (ListView)view.findViewById(R.id.traffic_list);
 
         list_ItemArrayList = new ArrayList<CustomlistItem>();
-        //리스트 추가
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"지하철 안내"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"버스 안내"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"부산역 출발 야경투어"));
-        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"2층 버스 야경투어"));
+
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_gwangalli,"임시 교통정보1"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_marine_city,"임시 교통정보2"));
+        list_ItemArrayList.add(new CustomlistItem(R.drawable.place_witerside_park,"임시 교통정보3"));
 
         adapter = new AdapterCustomlist(getActivity(),list_ItemArrayList);
 
         traffic_list.setAdapter(adapter);
-
-        traffic_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getActivity(),ActivityTraffic.class);
-                intent.putExtra("trafficPosition",position);
-                startActivity(intent);
-            }
-        });
 
         return view;
     }
