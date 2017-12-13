@@ -1,10 +1,6 @@
 package fuzzle.Fireworksfestival;
 
 import android.content.Context;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Spinner;
-
 //커스텀 툴바
 
 public class CustomToolBar{

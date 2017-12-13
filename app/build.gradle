@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         applicationId "fuzzle.Fireworksfestival"
@@ -36,6 +36,7 @@ dependencies {
 
 
     compile 'com.github.bumptech.glide:glide:3.6.0'
+    //noinspection GradleCompatible,GradleCompatible
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
     compile 'com.ssomai:android.scalablelayout:2.1.1'
