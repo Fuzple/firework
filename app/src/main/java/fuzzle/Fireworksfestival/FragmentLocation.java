@@ -86,7 +86,7 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
         mMyMarkersArray.add(new CustomMaker("부산박물관",R.drawable.place_busan_museum,Double.parseDouble("35.129565"),Double.parseDouble("129.092946"),"Busan museum",13));
         mMyMarkersArray.add(new CustomMaker("용호만 유람터미널",R.drawable.place_yonghoman,Double.parseDouble("35.132319"),Double.parseDouble("129.116219"),"Yonghoman Sightseeing Boat Terminal",14));
         mMyMarkersArray.add(new CustomMaker("해운대 해수욕장",R.drawable.place_haeundae_beach,Double.parseDouble("35.158697"),Double.parseDouble("129.160395"),"Haeundae Beach",15));
-        mMyMarkersArray.add(new CustomMaker("평화공원",R.drawable.place_haeundae_beach,Double.parseDouble("35.126922"),Double.parseDouble("129.100891"),"Peace Park",16));
+        mMyMarkersArray.add(new CustomMaker("평화공원",R.drawable.place_peace_park,Double.parseDouble("35.126922"),Double.parseDouble("129.100891"),"Peace Park",16));
         mMyMarkersArray.add(new CustomMaker("광복로",R.drawable.place_gwangbokro,Double.parseDouble("35.098980"),Double.parseDouble("129.032148"),"Gwangbokro",17));
         mMyMarkersArray.add(new CustomMaker("송정역",R.drawable.place_songjeong_station,Double.parseDouble("35.187811"),Double.parseDouble("129.202373"),"Songjeong Station",18));
         mMyMarkersArray.add(new CustomMaker("동부산관광단지",R.drawable.place_east_busan_tourism,Double.parseDouble("35.191568"),Double.parseDouble("129.215548"),"East Busan Tourism Complex",19));

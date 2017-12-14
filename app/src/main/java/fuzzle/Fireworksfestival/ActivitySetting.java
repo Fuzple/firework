@@ -1,5 +1,6 @@
 package fuzzle.Fireworksfestival;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,6 +8,7 @@ import android.database.sqlite.SQLiteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -90,5 +92,19 @@ public class ActivitySetting extends AppCompatActivity {
         // firework테이블에 id가 1인
         db.execSQL("update firework set lenguage = '" + lenguage + "' where id = 1;");
         Log.d(tag, "update 성공~!");
+    }
+
+    //취소버튼을 눌렀을 때
+    public boolean onKeyDown(int keyCode, KeyEvent event)    {
+        if(keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0)        {
+            finish();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        finish();
     }
 }

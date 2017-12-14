@@ -120,7 +120,6 @@ public class ActivityMain extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ActivityMain.this, ActivitySetting.class);
                 startActivity(intent);
-                finish();
             }
         });
 
