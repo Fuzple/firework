@@ -11,8 +11,11 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import com.bumptech.glide.Glide;
 
 import java.util.Locale;
 
@@ -29,6 +32,7 @@ public class ActivitySetting extends AppCompatActivity {
 
     RadioGroup setting_Language;
     Button setting_Select;
+    ImageView settingBackImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,9 @@ public class ActivitySetting extends AppCompatActivity {
             Log.e(tag,"데이터베이스를 찾지 못하였습니다.");
             finish();
         }
+
+        settingBackImg = (ImageView)findViewById(R.id.settingBackImg);
+        Glide.with(this).load(R.drawable.language_background).centerCrop().crossFade().into(settingBackImg);
 
         setting_Language = (RadioGroup)findViewById(R.id.settint_Language);
         setting_Select = (Button)findViewById(R.id.setting_Select);

@@ -9,10 +9,9 @@
     android:orientation="vertical">
 
     <ImageView
+        android:id="@+id/main_background"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/main_background"
-        android:id="@+id/main_background" />
+        android:layout_height="match_parent" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -47,14 +46,14 @@
                     sl:scale_base_height="1350">
 
                     <Button
+                        android:id="@+id/btn_Gamestart"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/btn_Gamestart"
+                        android:background="@drawable/main_btn_start"
+                        sl:scale_height="800"
                         sl:scale_left="830"
                         sl:scale_top="360"
-                        sl:scale_width="800"
-                        sl:scale_height="800"
-                        android:background="@drawable/main_btn_start" />
+                        sl:scale_width="800" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -68,14 +67,14 @@
                         sl:scale_textsize="110"/>
 
                     <Button
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
                         android:id="@+id/btn_Setting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:background="@drawable/main_btn_setting"
+                        sl:scale_height="300"
                         sl:scale_left="1650"
                         sl:scale_top="120"
-                        sl:scale_width="300"
-                        sl:scale_height="300"/>
+                        sl:scale_width="300" />
 
                 </com.ssomai.android.scalablelayout.ScalableLayout>
             </LinearLayout>
@@ -93,14 +92,14 @@
                     sl:scale_base_height="950">
 
                     <Button
+                        android:id="@+id/btn_Look"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/btn_Look"
                         android:background="@drawable/main_btn_look"
+                        sl:scale_height="550"
                         sl:scale_left="1430"
                         sl:scale_top="220"
-                        sl:scale_width="550"
-                        sl:scale_height="550" />
+                        sl:scale_width="550" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -115,14 +114,14 @@
                         sl:scale_textsize="110" />
 
                     <Button
+                        android:id="@+id/btn_Fire"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/btn_Fire"
                         android:background="@drawable/main_btn_fire"
+                        sl:scale_height="550"
                         sl:scale_left="400"
                         sl:scale_top="220"
-                        sl:scale_width="550"
-                        sl:scale_height="550" />
+                        sl:scale_width="550" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -151,15 +150,15 @@
                     sl:scale_base_width="2400"
                 sl:scale_base_height="950">
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btn_Location"
-                    android:background="@drawable/main_btn_loaction"
-                    sl:scale_left="410"
-                    sl:scale_top="240"
-                    sl:scale_width="550"
-                    sl:scale_height="550" />
+                    <Button
+                        android:id="@+id/btn_Location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/main_btn_location"
+                        sl:scale_height="550"
+                        sl:scale_left="410"
+                        sl:scale_top="240"
+                        sl:scale_width="550" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -186,14 +185,14 @@
                         sl:scale_textsize="110"/>
 
                     <Button
+                        android:id="@+id/btn_Traffic"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/btn_Traffic"
                         android:background="@drawable/main_btn_traffic"
+                        sl:scale_height="550"
                         sl:scale_left="1430"
                         sl:scale_top="240"
-                        sl:scale_width="550"
-                        sl:scale_height="550"/>
+                        sl:scale_width="550" />
 
                 </com.ssomai.android.scalablelayout.ScalableLayout>
 

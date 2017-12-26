@@ -9,9 +9,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 public class ActivitySub extends AppCompatActivity{
 
+    ImageView subBackImg;
     private ViewPager mViewPager;
     TabLayout tabLayout;
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -25,6 +29,9 @@ public class ActivitySub extends AppCompatActivity{
         setContentView(R.layout.activity_sub);
 
         i=getIntent().getExtras().getInt("btnId");
+
+        subBackImg = (ImageView)findViewById(R.id.subBackImg);
+        Glide.with(this).load(R.drawable.sub_background).centerCrop().crossFade().into(subBackImg);
 
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),this);

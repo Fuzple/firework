@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 /**
  * Created by 김태홍 on 2016-08-23.
  */
@@ -30,7 +32,8 @@ public class FragmentFire extends Fragment {
         }
 
         imageView = (ImageView)view.findViewById(R.id.festival_info);
-        imageView.setImageDrawable(new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), R.drawable.festival)));
+//        imageView.setImageDrawable(new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), R.drawable.festival)));
+        Glide.with(getActivity()).load(R.drawable.festival).into(imageView);
 
         introduce = (TextView)view.findViewById(R.id.introduce);
         introduce_con = (TextView)view.findViewById(R.id.introduce_con);

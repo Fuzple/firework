@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ActivityLook"
-    android:background="@drawable/sub_background"
     android:id="@+id/look_acitvity_bg">
 
     <include
@@ -16,6 +15,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/include" />
+
+    <ImageView
+        android:id="@+id/lookBackImg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -56,7 +60,6 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/temp"
                         android:layout_below="@+id/include"
-                        android:background="@drawable/place_marine_city"
                         android:scaleType="fitXY"
                         android:layout_marginBottom="20dp"
                         android:layout_marginLeft="20dp"

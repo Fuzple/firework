@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -170,6 +171,7 @@ public class FragmentLocation extends Fragment implements OnMapReadyCallback {
 
                 FileReader infomation =  new FileReader(getActivity(),info[myMarker.getplaceInfo()]);
 
+                //Glide.with(getActivity()).load(myMarker.getIcon()).into(markerIcon);
                 markerIcon.setImageDrawable(new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(),myMarker.getIcon())));
                 markerLabel.setText(myMarker.gettitle());
                 anotherLabel.setText(myMarker.getprice());

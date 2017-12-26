@@ -11,13 +11,15 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 public class ActivityLook extends AppCompatActivity {
     int[] file = {R.raw.location_busan_station,R.raw.location_un_memorial_cemetery};
     //인텐트로 받은 데이터
     int getdata;
     int placeImg;
     String topText;
-    ImageView temp,look_moire;
+    ImageView temp,look_moire,lookBackImg;
     TextView txt, loot_topText;
 
     @Override
@@ -31,12 +33,17 @@ public class ActivityLook extends AppCompatActivity {
         placeImg = intent.getExtras().getInt("placeImg");          //이미지 파일의 주소
         topText = intent.getExtras().getString("topText");
 
+        lookBackImg = (ImageView)findViewById(R.id.lookBackImg);
         temp = (ImageView)findViewById(R.id.temp);
         look_moire = (ImageView)findViewById(R.id.look_moire);
         loot_topText = (TextView)findViewById(R.id.look_topText);
 
-        temp.setImageDrawable(new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), placeImg)));
-        look_moire.setImageDrawable(new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(),R.drawable.look_moire)));
+        //temp.setImageDrawable(new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), placeImg)));
+        //look_moire.setImageDrawable(new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(),R.drawable.look_moire)));
+
+        Glide.with(this).load(R.drawable.sub_background).centerCrop().crossFade().into(lookBackImg);
+        Glide.with(this).load(R.drawable.look_moire).centerCrop().into(look_moire);
+        Glide.with(this).load(placeImg).centerCrop().into(temp);
 
         loot_topText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.look_text_icon,0,0,0);
         loot_topText.setText(topText);

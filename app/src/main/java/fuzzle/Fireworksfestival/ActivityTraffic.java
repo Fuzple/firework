@@ -11,9 +11,11 @@ import android.widget.LinearLayout.LayoutParams;
 import android.view.WindowManager;
 import android.util.DisplayMetrics;
 
+import com.bumptech.glide.Glide;
+
 public class ActivityTraffic extends AppCompatActivity {
     TextView txtTour;
-    ImageView imgTour;
+    ImageView imgTour,trafficBackImg;
     int trafficPosition;
     int[] file = {R.raw.traffic_subway,R.raw.traffic_bus,R.drawable.traffic_tour1,R.drawable.traffic_tour2};
     @Override
@@ -24,12 +26,16 @@ public class ActivityTraffic extends AppCompatActivity {
         Intent intent = getIntent();
         trafficPosition = getIntent().getExtras().getInt("trafficPosition");
         imgTour = (ImageView)findViewById(R.id.imgTour);
+        trafficBackImg = (ImageView)findViewById(R.id.trafficBackImg);
         txtTour = (TextView)findViewById(R.id.txtTour);
+
+        Glide.with(this).load(R.drawable.sub_background).centerCrop().crossFade().into(trafficBackImg);
 
         if(trafficPosition <= 1) {
             FileReader sub = new FileReader(this, file[trafficPosition]);
             txtTour.setText(sub.sb);
-            imgTour.setImageResource(R.drawable.traffic_map);
+//            imgTour.setImageResource(R.drawable.traffic_map);
+            Glide.with(this).load(R.drawable.traffic_map).centerCrop().crossFade().into(imgTour);
         }
         else if(trafficPosition >= 2){
             txtTour.setText("");
@@ -43,7 +49,8 @@ public class ActivityTraffic extends AppCompatActivity {
             params.height = metrics.heightPixels;
 
             imgTour.setLayoutParams(params);
-            imgTour.setImageResource(file[trafficPosition]);
+//            imgTour.setImageResource(file[trafficPosition]);
+            Glide.with(this).load(file[trafficPosition]).centerCrop().crossFade().into(imgTour);
         }
     }
 }

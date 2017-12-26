@@ -16,7 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 public class ActivityMain extends AppCompatActivity {
 
@@ -30,6 +33,7 @@ public class ActivityMain extends AppCompatActivity {
     int id;
 
     Button btn_fire, btn_look, btn_location, btn_traffic,btn_Setting,btn_gamestart;
+
     ImageView main_background;
 
     @Override
@@ -45,6 +49,8 @@ public class ActivityMain extends AppCompatActivity {
         btn_look = (Button) findViewById(R.id.btn_Look);
         btn_location = (Button) findViewById(R.id.btn_Location);
         btn_traffic = (Button) findViewById(R.id.btn_Traffic);
+
+        Glide.with(this).load(R.drawable.main_background).centerCrop().crossFade().into(main_background);
 
         //데이터베이스를 시작한다.
         helper = new MySQLiteOpenHelper(this,dbName,null,dbVersion);

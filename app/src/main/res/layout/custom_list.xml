@@ -20,7 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:id="@+id/look_button_bar"
-            android:background="@drawable/customlist_buttombar"
             android:layout_below="@+id/customList"
             android:layout_gravity="bottom"
             android:scaleType="fitXY"
